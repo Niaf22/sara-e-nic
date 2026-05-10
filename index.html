@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sara & Nicolò — 26 settembre 2026</title>
+<meta name="description" content="Ci sposiamo il 26 settembre 2026 al Convento di Sabbioncello e a Villa Parravicino Sosnovsky.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Caveat:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3ecdb;
+  --bg-warm:#ebe2cc;
+  --bg-card:#e7dcc3;
+  --ink:#2b3a2e;
+  --ink-soft:#3e4a3d;
+  --muted:#7d8276;
+  --sage:#8a9a7b;
+  --sage-deep:#566b50;
+  --line:#cfc5a8;
+  --ochre:#b08c5a;
+  --shadow: 0 1px 0 rgba(43,58,46,.04);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+/* warm paper grain — feTurbulence layered over the page, very subtle */
+body::before{
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.22 0 0 0 0 0.18 0 0 0 0.12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  opacity: .35;
+  mix-blend-mode: multiply;
+  pointer-events:none;
+  z-index:1;
+}
+main, nav, footer{position:relative; z-index:2}
+
+a{color:inherit; text-decoration:none}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky; top:0; z-index:50;
+  background: rgba(243,236,219,.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(207,197,168,.5);
+}
+.nav-inner{
+  max-width:1200px; margin:0 auto;
+  padding: 18px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+}
+.brand{
+  font-family:'Italiana', serif;
+  font-size:18px; letter-spacing:.32em;
+  color:var(--ink);
+}
+.nav-links{
+  display:flex; gap:28px;
+  font-family:'Inter', sans-serif;
+  font-size:11px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.nav-links a{
+  position:relative;
+  transition: color .25s;
+  cursor:pointer;
+}
+.nav-links a:hover{ color:var(--ink) }
+.nav-links a::after{
+  content:''; position:absolute;
+  left:0; right:0; bottom:-6px; height:1px;
+  background:var(--sage-deep);
+  transform: scaleX(0); transform-origin:left;
+  transition: transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.nav-links a:hover::after{ transform: scaleX(1) }
+
+/* ---------- hero ---------- */
+.hero{
+  max-width:1200px; margin:0 auto;
+  padding: 72px 32px 88px;
+  position:relative;
+}
+.eyebrow{
+  font-family:'Inter', sans-serif;
+  font-size:11px; letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:32px;
+}
+.hero h1{
+  font-family:'Italiana', serif;
+  font-weight:400;
+  font-size: clamp(72px, 14vw, 180px);
+  line-height:.92;
+  letter-spacing:-.005em;
+  color:var(--ink);
+  margin: 0;
+}
+.hero h1 .amp{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic; font-weight:300;
+  font-size: .65em;
+  color:var(--sage-deep);
+  display:block;
+  margin: .04em 0;
+  padding-left: .15em;
+}
+.hero-meta{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.countdown-block{
+  border-left:1px solid var(--line);
+  padding-left:24px;
+}
+.countdown-label{
+  font-family:'Inter', sans-serif;
+  font-size:10px; letter-spacing:.35em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.countdown-value{
+  font-family:'Italiana', serif;
+  font-size:54px;
+  color:var(--ink);
+  line-height:1;
+}
+.countdown-unit{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:18px;
+  color:var(--muted);
+  margin-left:8px;
+}
+.hero-quote{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size: 22px;
+  color:var(--ink-soft);
+  max-width: 460px;
+  line-height:1.5;
+  padding-bottom: 8px;
+}
+.hero-quote::before{
+  content:'« ';
+  color:var(--sage-deep);
+  font-weight:500;
+}
+.hero-quote::after{
+  content:' »';
+  color:var(--sage-deep);
+  font-weight:500;
+}
+.hero-deco{
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  width: 150px;
+  height: auto;
+  opacity: .5;
+  pointer-events: none;
+  z-index: 0;
+  animation: hydrangeaFloat 7s ease-in-out infinite;
+}
+@keyframes hydrangeaFloat{
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-7px) rotate(.6deg); }
+}
+@media (max-width: 860px){
+  .hero-deco{ display: none; }
+}
+
+/* ---------- imagery band (placeholder illustrations) ---------- */
+.imagery{
+  display:grid; grid-template-columns: 2fr 1fr;
+  gap: 6px;
+  padding: 0 6px;
+}
+/* image placeholders — replace each .illust / .place-illust with <img> when photos are ready */
+.illust{
+  position:relative;
+  background: repeating-linear-gradient(135deg, #d8dfcd 0 18px, #c9d2bb 18px 36px);
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  min-height: 220px;
+}
+.illust img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.illust .caption,
+.place-illust .caption{
+  font-family: ui-monospace, SFMono-Regular, Menlo, "Roboto Mono", monospace;
+  font-size: 10px; letter-spacing:.2em;
+  text-transform:uppercase;
+  color: var(--ink-soft);
+  background: rgba(243,236,219,.9);
+  padding: 9px 14px;
+  border: 1px solid rgba(86,107,80,.22);
+  text-align:center;
+}
+.illust-a{ aspect-ratio: 16/9 }
+.illust-b{ height:100% }
+
+/* ---------- sections ---------- */
+section{
+  position:relative;
+  padding: 130px 32px;
+}
+.section-inner{ max-width: 1100px; margin:0 auto }
+.section-eyebrow{
+  font-family:'Inter', sans-serif;
+  font-size:11px; letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom: 24px;
+  text-align:center;
+}
+.section-title{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:300;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height:1.3;
+  color:var(--ink);
+  text-align:center;
+  margin: 0 auto 0;
+  max-width: 800px;
+}
+.section-title em{
+  font-style:italic;
+  color:var(--sage-deep);
+}
+
+/* il racconto */
+#racconto{ background: var(--bg) }
+.story{
+  margin: 64px auto 0;
+  max-width: 620px;
+  font-family:'Cormorant Garamond', serif;
+  font-size: 19px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.story p{ margin: 0 0 22px }
+.story .dropcap::first-letter{
+  font-family:'Italiana', serif;
+  font-size: 3.4em;
+  float:left; line-height:.85;
+  margin: 6px 12px 0 0;
+  color: var(--sage-deep);
+}
+.story em{ color: var(--sage-deep); font-style:italic }
+
+.memoriae{
+  margin: 88px auto 0;
+  max-width: 940px;
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  text-align:center;
+}
+.mem-title{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -.005em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.mem-sub{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* il giorno */
+#giorno{ background: var(--bg-warm) }
+.places{
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin: 80px 0 96px;
+}
+.place-tag{
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 10px;
+}
+.place-name{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 36px);
+  letter-spacing: -.005em;
+  line-height: 1.15;
+  color: var(--ink);
+  display:inline-block;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  transition: color .25s, border-color .25s;
+}
+.place-name:hover{ color: var(--sage-deep); border-color: var(--sage-deep) }
+.place-name .arrow{
+  font-family:'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--sage-deep);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.place-body{
+  font-family:'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 16px 0 20px;
+}
+.place-info{
+  border-top: 1px solid rgba(207,197,168,.7);
+  padding-top: 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.place-illust{
+  aspect-ratio: 4/5;
+  margin-bottom: 24px;
+  background: repeating-linear-gradient(135deg, #d8dfcd 0 18px, #c9d2bb 18px 36px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* timeline */
+.timeline{
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
+.timeline-eyebrow{
+  text-align: center;
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.tl-row{
+  display:grid;
+  grid-template-columns: 110px 1fr;
+  gap: 36px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(207,197,168,.6);
+  align-items: baseline;
+}
+.tl-time{
+  font-family:'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 28px;
+  font-variant-numeric: tabular-nums;
+  color: var(--sage-deep);
+  letter-spacing: .005em;
+}
+.tl-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.tl-sub{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* note pratiche */
+.notes{
+  max-width: 880px;
+  margin: 80px auto 0;
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align:center;
+}
+.note-title{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.note-sub{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* un dono */
+#dono{ background: var(--bg) }
+.gift-wrap{
+  max-width: 580px;
+  margin: 0 auto;
+}
+.gift-intro{
+  text-align: center;
+  font-family:'Cormorant Garamond', serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 520px;
+  margin: 36px auto 44px;
+}
+.gift-intro em{
+  font-style: italic;
+  color: var(--sage-deep);
+}
+.gift-card{
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 32px 28px 28px;
+  border-top: 1px solid rgba(207,197,168,.7);
+  border-bottom: 1px solid rgba(207,197,168,.7);
+  text-align: center;
+}
+.gift-card-label{
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.gift-iban{
+  font-family:'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(17px, 2.4vw, 22px);
+  letter-spacing: .06em;
+  color: var(--ink);
+  font-variant-numeric: lining-nums tabular-nums;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  margin-bottom: 14px;
+  user-select: all;
+  -webkit-user-select: all;
+}
+.gift-holder{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.gift-copy{
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all .25s;
+}
+.gift-copy:hover{
+  background: var(--sage-deep);
+  color: var(--bg);
+  border-color: var(--sage-deep);
+}
+.gift-copy:focus-visible{
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+/* RSVP */
+#rsvp{ background: var(--bg-warm) }
+.rsvp-wrap{
+  max-width: 580px;
+  margin: 0 auto;
+}
+.rsvp-deadline{
+  text-align:center;
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 24px 0 56px;
+}
+.rsvp-deadline strong{
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.rsvp-intro{
+  font-family:'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  text-align: center;
+  padding: 28px 24px;
+  border-top: 1px solid rgba(207,197,168,.7);
+  border-bottom: 1px solid rgba(207,197,168,.7);
+  margin-bottom: 36px;
+}
+.rsvp-intro em{ color: var(--sage-deep); font-style: italic }
+
+.btn-row{
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  padding: 17px 32px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all .3s;
+  font-weight: 400;
+}
+.btn:hover{ background: var(--ink); color: var(--bg) }
+.btn-soft{
+  border-color: var(--line);
+  color: var(--muted);
+}
+.btn-soft:hover{
+  background: var(--muted);
+  color: var(--bg);
+  border-color: var(--muted);
+}
+.btn-primary{
+  background: var(--ink);
+  color: var(--bg);
+}
+.btn-primary:hover{ background: var(--sage-deep); border-color: var(--sage-deep) }
+
+/* form fields */
+.form{ display:none; flex-direction: column; gap: 22px }
+.form.visible{ display: flex }
+.field label{
+  display:block;
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.field input, .field textarea{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  background: transparent;
+  font-family:'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--ink);
+  transition: border-color .25s;
+}
+.field input:focus, .field textarea:focus{
+  outline: none;
+  border-color: var(--ink);
+}
+.field textarea{ resize: vertical; min-height: 70px; line-height: 1.5 }
+
+/* done state */
+.done{
+  display:none;
+  text-align:center;
+  padding: 40px 0;
+}
+.done.visible{ display:block }
+.done svg{ margin-bottom: 18px }
+.done-title{
+  font-family:'Italiana', serif;
+  font-size: 40px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.done-sub{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.done-contact{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 30px auto 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(207,197,168,.55);
+}
+.done-contact a{
+  color: var(--sage-deep);
+  font-style: normal;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  transition: color .2s, border-color .2s;
+}
+.done-contact a:hover{
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-link{
+  margin-top: 28px;
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  font-family:'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s;
+}
+.btn-link:hover{ color: var(--ink); border-color: var(--ink) }
+
+/* ---------- footer ---------- */
+footer{
+  border-top: 1px solid rgba(207,197,168,.5);
+  padding: 36px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.foot-brand{
+  font-family:'Italiana', serif;
+  font-size: 14px;
+  letter-spacing: .3em;
+  color: var(--muted);
+}
+.foot-note{
+  font-family:'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- in-view fade-in ---------- */
+.fade{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.3,1);
+}
+.fade.in{ opacity: 1; transform: translateY(0) }
+.fade.d1{ transition-delay: .12s }
+.fade.d2{ transition-delay: .25s }
+.fade.d3{ transition-delay: .38s }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px){
+  .nav-inner{ padding: 14px 20px; flex-wrap: wrap }
+  .nav-links{ gap: 18px; font-size: 10px }
+  .hero{ padding: 48px 20px 60px }
+  .hero-meta{ grid-template-columns: 1fr; gap: 32px }
+  .imagery{ grid-template-columns: 1fr }
+  section{ padding: 80px 20px }
+  .places{ grid-template-columns: 1fr; gap: 56px }
+  .memoriae{ grid-template-columns: 1fr; gap: 32px }
+  .notes{ grid-template-columns: 1fr; gap: 24px }
+  .tl-row{ grid-template-columns: 80px 1fr; gap: 18px }
+  .tl-time{ font-size: 22px }
+  .gift-card{ padding: 26px 18px 24px }
+  .gift-intro{ font-size: 17px; margin: 28px auto 36px }
+  footer{ flex-direction: column; text-align: center; padding: 28px 20px }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">S &nbsp;·&nbsp; N</a>
+    <div class="nav-links">
+      <a href="#racconto">Il racconto</a>
+      <a href="#giorno">Il giorno</a>
+      <a href="#dono">Un dono</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" style="padding-top:72px">
+  <img src="img/ortensia.svg" alt="" class="hero-deco" aria-hidden="true">
+
+  <div class="fade in eyebrow">26 · 09 · 2026</div>
+
+  <h1 class="fade in d1">Sara<span class="amp">&amp;</span>Nicolò</h1>
+
+  <div class="hero-meta fade d2">
+    <div class="countdown-block">
+      <div class="countdown-label">Mancano</div>
+      <div>
+        <span class="countdown-value" id="cd-days">—</span>
+        <span class="countdown-unit">giorni</span>
+      </div>
+    </div>
+    <div class="hero-quote">
+      Una volta a casa sapremo che, innanzitutto, la vita scorre dentro di noi,
+      la cura che offriamo è devota, durevole e espressa un passo alla volta.
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGERY BAND (placeholder illustrations) ============ -->
+<div class="imagery">
+  <div class="illust illust-a">
+    <img src="img/nic e sara 01.jpg" alt="Sara e Nicolò">
+  </div>
+  <div class="illust illust-b">
+    <img src="img/nic e sara 02.jpg" alt="Sara e Nicolò">
+  </div>
+</div>
+
+<!-- ============ IL RACCONTO ============ -->
+<section id="racconto">
+  <div class="section-inner">
+    <div class="fade section-eyebrow">— Il racconto —</div>
+    <h2 class="fade d1 section-title">
+      <em>Di due viandanti che, dopo tanto camminare,
+      hanno deciso di viaggiare insieme.</em>
+    </h2>
+
+    <div class="story fade d2">
+      <p class="dropcap">
+        Si sono incontrati in una taverna, in un'occasione di festa.
+        Lui ingenuo, arrivato quasi per caso; lei già lì, ridendo sicura come chi si conosce
+        fino in fondo. Non è stato un colpo di fulmine: è stato un riconoscersi piano,
+        come il profumo del pane appena sfornato a mezzanotte, ti ricorda casa.
+      </p>
+      <p>
+        Poi sono arrivati gli inverni con i libri sul divano, le estati in cui hanno scoperto
+        che il piacere di viaggiare piano, le passeggiate nei boschi, il profumo dei dolci in cucina.
+        I piccoli riti di tutti i giorni.
+      </p>
+      <p>
+        E una notte lontano da casa, tra le renne e le luci del nord, hanno
+        deciso che in due la strada è meno faticosa e che casa è un po' più vicina.
+        Hanno deciso che insieme è il modo giusto di viaggiare.
+      </p>
+    </div>
+
+    <!-- piccole cose, in tono Wanderhome -->
+    <div class="memoriae">
+      <div class="fade d1">
+        <div class="mem-title">il primo tè</div>
+        <div class="mem-sub">una locanda, oggetti scompagnati alle pareti e il tempo
+          che scorre senza accorgersi</div>
+      </div>
+      <div class="fade d2">
+        <div class="mem-title">la nostra casa</div>
+        <div class="mem-sub">due stanze piene di oggetti, piante rigogliose e montagne
+          fuori dalla finestra</div>
+      </div>
+      <div class="fade d3">
+        <div class="mem-title">il viaggio dei sogni</div>
+        <div class="mem-sub">deciso in fretta, quasi per caso, ma rimasto poi nel cuore
+          come un desiderio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IL GIORNO ============ -->
+<section id="giorno">
+  <div class="section-inner">
+    <div class="fade section-eyebrow">— Il giorno —</div>
+    <div class="fade d1" style="text-align:center">
+      <div style="font-family:'Italiana',serif; font-size:clamp(40px,6vw,56px); color:var(--ink); margin-bottom:8px">
+        Sabato 26 Settembre
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:var(--muted); max-width:600px; margin: 14px auto 0; line-height:1.6">
+        « Un giorno piccolo, lento e spensierato — una vecchia chiesa su una collina,
+        un viale tra gli alberi, un giardino dove il mondo resta fuori.
+        Portate con voi niente di troppo importante:
+        né l'orologio, né i pensieri pesanti. »
+      </div>
+    </div>
+
+    <!-- two places -->
+    <div class="places">
+      <!-- CONVENTO -->
+      <div class="fade d1">
+        <img src="img/convento.jpg" alt="Convento di Sabbioncello" class="place-illust" style="object-fit:cover; width:100%">
+        <div class="place-tag">la cerimonia</div>
+        <a href="https://maps.app.goo.gl/UeUMr9NAN6NbsUgt6" target="_blank" rel="noopener" class="place-name">
+          Convento di Sabbioncello<span class="arrow">↗</span>
+        </a>
+        <div class="place-body">
+          Un convento francescano del Quattrocento, su una collina che guarda la Brianza.
+          Un chiostro silenzioso, un campanile che si sente da lontano, e una luce mattutina
+          che entra obliqua dalle vetrate basse.
+        </div>
+        <div class="place-info">
+          <div>· Via Sant'Antonio da Padova, 5 — Merate (LC)</div>
+        </div>
+      </div>
+
+      <!-- VILLA -->
+      <div class="fade d2">
+      <img src="img/villa.jpg" alt="Villa Sossnovsky" class="place-illust" style="object-fit:cover; width:100%">
+        <div class="place-tag">il ricevimento</div>
+        <a href="https://maps.app.goo.gl/Ax4xr8eQuHJji9Zy6" target="_blank" rel="noopener" class="place-name">
+          Villa Parravicino Sossnovsky<span class="arrow">↗</span>
+        </a>
+        <div class="place-body">
+          Un silenzioso parco ottocentesco che sembra uscito da un libro.
+          Maestosi cedri secolari, un lungo viale di magnolie,
+          ortensie vecchie come la villa, e i prati che scendono piano verso il lago di Alserio.
+        </div>
+        <div class="place-info">
+          <div>· Via Cesare Cantù, 15 — Erba (CO)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- timeline -->
+    <div class="timeline">
+      <div class="fade timeline-eyebrow" style="margin-top:48px">— il filo della giornata —</div>
+
+      <div class="fade tl-row">
+        <div class="tl-time">11:00</div>
+        <div>
+          <div class="tl-title">Cerimonia</div>
+          <div class="tl-sub">Arrivate con calma; e portate quello che vi fa stare a vostro agio.</div>
+        </div>
+      </div>
+      <div class="fade tl-row">
+        <div class="tl-time">13:00</div>
+        <div>
+          <div class="tl-title">Aperitivo nei giardini</div>
+          <div class="tl-sub">Il primo brindisi tra gli alberi e i fiori del parco.</div>
+        </div>
+      </div>
+      <div class="fade tl-row">
+        <div class="tl-time">14:30</div>
+        <div>
+          <div class="tl-title">Pranzo</div>
+          <div class="tl-sub">Tavole lunghe, luci calde, qualcuno che racconterà una storia imbarazzante.</div>
+        </div>
+      </div>
+      <div class="fade tl-row">
+        <div class="tl-time">19:00</div>
+        <div>
+          <div class="tl-title">Taglio della torta</div>
+          <div class="tl-sub">Nel giardino, con la luce che inizia a farsi dorata.</div>
+        </div>
+      </div>
+      <div class="fade tl-row">
+        <div class="tl-time">19:30</div>
+        <div>
+          <div class="tl-title">Musica</div>
+          <div class="tl-sub">Le luci appese si accendono, qualcuno chiede una canzone, e nessuno guarda più l'orologio.</div>
+        </div>
+      </div>
+      <div class="fade tl-row">
+        <div class="tl-time">22:00</div>
+        <div>
+          <div class="tl-title">Saluti</div>
+          <div class="tl-sub">La giornata si chiude piano. Un abbraccio e di nuovo per i propri sentieri.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- piccole note pratiche -->
+    <div class="notes">
+      <div class="fade d1">
+        <div class="note-title">vestitevi comodi</div>
+        <div class="note-sub">si cammina sull'erba, sulla ghiaia, e — se la giornata è giusta — sul muschio.</div>
+      </div>
+      <div class="fade d2">
+        <div class="note-title">colori discreti</div>
+        <div class="note-sub">vi vogliamo eleganti come i fiori di campo: niente colori sgargianti, per favore.</div>
+      </div>
+      <div class="fade d3">
+        <div class="note-title">due luoghi, una giornata</div>
+        <div class="note-sub">~25 minuti d'auto fra convento e villa: organizzatevi i passaggi con calma.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UN DONO ============ -->
+<section id="dono">
+  <div class="gift-wrap">
+    <div class="fade section-eyebrow">— Un dono —</div>
+    <h2 class="fade d1 section-title">
+      Veniteci leggeri — <em>tutto il resto è secondario.</em>
+    </h2>
+
+    <p class="fade d2 gift-intro">
+      Se proprio vi va di lasciarci qualcosa, sappiate che ciò che ci scalda di più
+      è una piccola mano per la strada che ci aspetta. Un gesto che cammini accanto
+      al nostro.
+    </p>
+
+    <div class="fade d3 gift-card">
+      <div class="gift-card-label">Le coordinate</div>
+      <div class="gift-iban" id="iban-text">IT53 L034 7501 605C C001 2769 146</div>
+      <div class="gift-holder">intestato a Sara Francesca Bresciani &amp; Nicolò Andreoli</div>
+      <button type="button" class="gift-copy" onclick="copyIban()" aria-label="Copia l'IBAN negli appunti">
+        <span id="iban-btn-text">copia l'IBAN</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section id="rsvp">
+  <div class="rsvp-wrap">
+    <div class="fade section-eyebrow">— RSVP —</div>
+    <div id="rsvp-title" class="fade d1" style="text-align:center; font-family:'Italiana',serif; font-size:clamp(40px,6vw,56px); color:var(--ink); line-height:1; margin-bottom:0">
+      Ci sarai?
+    </div>
+    <div id="rsvp-subtitle" class="fade d2 rsvp-deadline">
+      Facci un piccolo segno entro il <strong>15 luglio 2026</strong>,<br>
+      così sapremo per quanti apparecchiare.
+    </div>
+
+    <!-- INTRO -->
+    <div id="rsvp-intro" class="fade d2">
+      <div class="rsvp-intro">
+        Abbiamo pensato a ogni persona che ha fatto parte di questo viaggio
+         e abbiamo cercato di riunirle tutte. Sappiamo che alcuni di voi viaggiano con
+         qualcuno accanto e ci sarebbe piaciuto includere anche loro, ma abbiamo
+         dovuto contare i posti. Speriamo possiate comunque godervi la festa.
+      </div>
+      <div class="btn-row">
+        <button class="btn" data-go="form" data-attending="yes">Ci sarò con gioia</button>
+        <button class="btn btn-soft" data-go="form" data-attending="no">Non potrò esserci</button>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="rsvp-form" class="form" onsubmit="return submitRSVP(event)">
+      <input type="hidden" name="attending" id="f-attending" value="yes">
+
+      <div id="rsvp-error"
+        style="display:none;
+        text-align:center;
+        margin-top:16px;
+        font-family:'Cormorant Garamond',serif;
+        font-style:italic;
+        font-size:20px;
+        color:var(--muted);
+        line-height:1.6">
+        C'è stato un problema con l'invio.
+        <br>Riprova tra un attimo — o <a href="mailto:nicsara2609@gmail.com" style="color:var(--sage-deep); border-bottom:1px solid var(--line)">scrivici direttamente</a>, va benissimo lo stesso.</br>
+      </div>
+
+      <div class="field">
+        <label for="f-name">Chi sei o siete</label>
+        <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="nome e cognome">
+      </div>
+
+      <div class="field">
+        <label for="f-email">Dove possiamo scriverti</label>
+        <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="ricordaci il tuo indirizzo email">
+      </div>
+
+      <div id="attending-fields">
+        <div class="field">
+          <label for="f-diet">Per accoglierti o accogliervi come si deve</label>
+          <input type="text" id="f-diet" name="diet" placeholder="allergie, intolleranze, cose da evitare…">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-msg">Un messaggio, se vuoi</label>
+        <textarea id="f-msg" name="message" rows="1" placeholder="una canzone, un ricordo, un avviso importante…"></textarea>
+      </div>
+
+      <div class="btn-row" style="justify-content:flex-end; margin-top:8px">
+        <button type="button" class="btn-link" data-go="intro">← indietro</button>
+        <button type="submit" class="btn btn-primary">Lascia un segno</button>
+      </div>
+    </form>
+
+    <!-- DONE -->
+    <div id="rsvp-done" class="done">
+      <svg width="48" height="48" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="#566b50" stroke-width="1"/>
+        <path id="done-icon" d="M14 25 L21 32 L35 16" fill="none" stroke="#2b3a2e" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="done-title" id="done-title">Segnato.</div>
+      <div class="done-sub" id="done-sub">Siamo felici di sapere che ci sarai. A presto.</div>
+      <div class="done-contact">
+        Se nel mentre avessi bisogno di noi — un'indicazione, un imprevisto, anche solo un saluto — siamo a un messaggio di distanza: <a href="mailto:nicsara2609@gmail.com">scrivici</a>.
+      </div>
+      <button class="btn-link" data-go="intro">modifica risposta</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-brand">S &nbsp;·&nbsp; N</div>
+  <div class="foot-note">A presto - Sara e Nic</div>
+</footer>
+
+<script>
+// ----- countdown -----
+(function(){
+  var target = new Date('2026-09-26T11:00:00').getTime();
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var days = Math.floor(diff / 86400000);
+    var el = document.getElementById('cd-days');
+    if (el) el.textContent = days;
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+
+// ----- in-view fade-in -----
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+})();
+
+// ----- smooth scroll for anchor links -----
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    var y = el.getBoundingClientRect().top + window.scrollY - 60;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
+// ----- RSVP form state -----
+var introEl = document.getElementById('rsvp-intro');
+var formEl  = document.getElementById('rsvp-form');
+var doneEl  = document.getElementById('rsvp-done');
+var attendingFields = document.getElementById('attending-fields');
+var submitBtn = formEl ? formEl.querySelector('button[type="submit"]') : null;
+var submitBtnOriginal = submitBtn ? submitBtn.textContent : 'Lascia un segno';
+
+function resetSubmitButton(){
+  if (!submitBtn) return;
+  submitBtn.disabled = false;
+  submitBtn.textContent = submitBtnOriginal;
+  submitBtn.style.opacity = '';
+  submitBtn.style.cursor = '';
+}
+
+function showStep(step){
+  introEl.style.display = step === 'intro' ? '' : 'none';
+  formEl.classList.toggle('visible', step === 'form');
+  doneEl.classList.toggle('visible', step === 'done');
+  var titleEl = document.getElementById('rsvp-title');
+  var subtitleEl = document.getElementById('rsvp-subtitle');
+  if (titleEl) titleEl.style.display = step === 'done' ? 'none' : '';
+  if (subtitleEl) subtitleEl.style.display = step === 'done' ? 'none' : '';
+  if (step !== 'done') {
+    // re-enable submit button (in case we're coming back from a successful send)
+    resetSubmitButton();
+    // scroll to top of rsvp section
+    var s = document.getElementById('rsvp');
+    if (s) {
+      var y = s.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+}
+
+document.querySelectorAll('[data-go]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var step = btn.getAttribute('data-go');
+    if (step === 'form') {
+      var attending = btn.getAttribute('data-attending') || 'yes';
+      document.getElementById('f-attending').value = attending;
+      // hide attending-only fields if declining
+      attendingFields.style.display = attending === 'yes' ? '' : 'none';
+    }
+    showStep(step);
+  });
+});
+
+// ----- Google Forms backend -----
+// Le risposte vengono inviate a un Google Form che scrive in un Google Sheet
+// collegato. Gratis, illimitato, dati persistenti, niente retention a 30gg.
+var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd5Z8TjlXFCMJCY3JlZM9k9vq38g-FU4CZk6By-8KQCnI4pEg/formResponse';
+
+// Mappatura: nome del campo HTML → entry ID di Google Forms
+var GFORM_FIELDS = {
+  attending: 'entry.236122996',
+  name:      'entry.1547184274',
+  email:     'entry.614141026',
+  diet:      'entry.1614332987',
+  message:   'entry.567783418'
+};
+
+function submitRSVP(e){
+  e.preventDefault();
+  var attending = document.getElementById('f-attending').value;
+  var name = document.getElementById('f-name').value.trim();
+  var firstName = name ? name.split(' ')[0] : '';
+
+  // disable submit while sending
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'invio in corso…';
+    submitBtn.style.opacity = '.55';
+    submitBtn.style.cursor = 'wait';
+  }
+
+  // build URL-encoded body with Google Form entry IDs
+  var body = new URLSearchParams();
+  new FormData(formEl).forEach(function(value, key){
+    var entryId = GFORM_FIELDS[key];
+    if (!entryId) return;
+    // make 'yes'/'no' readable in the Google Sheet
+    if (key === 'attending') value = (value === 'yes' ? 'Sì' : 'No');
+    body.append(entryId, value);
+  });
+
+  // Send to Google Forms.
+  // Note: mode 'no-cors' is required because Google Forms doesn't allow
+  // cross-origin reads. The submission still works correctly — we just
+  // can't read Google's response. We treat any non-thrown result as success.
+  fetch(GOOGLE_FORM_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString()
+  })
+  .then(function(){
+    // success — show personalized done state
+    if (attending === 'yes') {
+      document.getElementById('done-title').textContent = 'Segnato.';
+      document.getElementById('done-sub').textContent = firstName
+        ? 'Siamo felici di sapere che ci sarai, ' + firstName + '. A presto.'
+        : 'Siamo felici di sapere che ci sarai. A presto.';
+      document.getElementById('done-icon').setAttribute('d', 'M14 25 L21 32 L35 16');
+    } else {
+      document.getElementById('done-title').textContent = 'Ci mancherai.';
+      document.getElementById('done-sub').textContent = 'Grazie di averci fatto sapere. Ti terremo un fiore da parte.';
+      document.getElementById('done-icon').setAttribute('d', 'M16 24 L32 24');
+    }
+    showStep('done');
+  })
+  .catch(function(err){
+    resetSubmitButton();
+      var errEl = document.getElementById('rsvp-error');
+      if (errEl) errEl.style.display = 'block';
+      console.error('RSVP submit error', err);
+  });
+
+  return false;
+}
+
+// ----- copy IBAN -----
+function copyIban(){
+  var ibanEl = document.getElementById('iban-text');
+  var btnTextEl = document.getElementById('iban-btn-text');
+  if (!ibanEl || !btnTextEl) return;
+  var iban = ibanEl.textContent.replace(/\s+/g, '');
+  var original = btnTextEl.textContent;
+  function showCopied(){
+    btnTextEl.textContent = 'copiato!';
+    setTimeout(function(){ btnTextEl.textContent = original; }, 2000);
+  }
+  function fallbackCopy(){
+    var ta = document.createElement('textarea');
+    ta.value = iban;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); showCopied(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(iban).then(showCopied).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+}
+</script>
+</body>
+</html>
