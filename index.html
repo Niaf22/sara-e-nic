@@ -64,6 +64,7 @@ nav{
   padding: 18px 32px;
   display:flex; align-items:center; justify-content:space-between;
   gap:16px;
+  position:relative;
 }
 .brand{
   font-family:'Italiana', serif;
@@ -91,6 +92,23 @@ nav{
   transition: transform .35s cubic-bezier(.2,.7,.3,1);
 }
 .nav-links a:hover::after{ transform: scaleX(1) }
+
+/* hamburger toggle (mobile) */
+.nav-toggle{ display:none }
+.nav-burger{
+  display:none;
+  flex-direction:column; justify-content:center; gap:5px;
+  width:34px; height:34px; padding:6px;
+  cursor:pointer;
+}
+.nav-burger span{
+  display:block; height:1.5px; width:100%;
+  background:var(--ink);
+  transition: transform .3s, opacity .3s;
+}
+.nav-toggle:checked + .nav-burger span:nth-child(1){ transform: translateY(6.5px) rotate(45deg) }
+.nav-toggle:checked + .nav-burger span:nth-child(2){ opacity:0 }
+.nav-toggle:checked + .nav-burger span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg) }
 
 /* ---------- hero ---------- */
 .hero{
@@ -713,8 +731,25 @@ footer{
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px){
-  .nav-inner{ padding: 14px 20px; flex-wrap: wrap }
-  .nav-links{ gap: 18px; font-size: 10px }
+  .nav-inner{ padding: 14px 20px }
+  .nav-burger{ display:flex }
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; gap:0;
+    background: rgba(243,236,219,.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(207,197,168,.5);
+    font-size:12px; letter-spacing:.25em;
+    max-height:0; overflow:hidden;
+    transition: max-height .35s ease;
+  }
+  .nav-toggle:checked ~ .nav-links{ max-height:320px }
+  .nav-links a{
+    padding:16px 24px;
+    border-top:1px solid rgba(207,197,168,.35);
+  }
+  .nav-links a::after{ display:none }
   .hero{ padding: 48px 20px 60px }
   .hero-meta{ grid-template-columns: 1fr; gap: 32px }
   .imagery{ grid-template-columns: 1fr }
@@ -736,12 +771,16 @@ footer{
 <nav>
   <div class="nav-inner">
     <a href="#top" class="brand">S &nbsp;·&nbsp; N</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </label>
     <div class="nav-links">
-      <a href="#racconto">Il racconto</a>
-      <a href="#giorno">Il giorno</a>
-      <a href="#dono">Un dono</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="#wanderhome">Wanderhome</a>
+      <a href="#racconto" onclick="document.getElementById('nav-toggle').checked=false">Il racconto</a>
+      <a href="#giorno" onclick="document.getElementById('nav-toggle').checked=false">Il giorno</a>
+      <a href="#dono" onclick="document.getElementById('nav-toggle').checked=false">Un dono</a>
+      <a href="#rsvp" onclick="document.getElementById('nav-toggle').checked=false">RSVP</a>
+      <a href="#wanderhome" onclick="document.getElementById('nav-toggle').checked=false">Wanderhome</a>
     </div>
   </div>
 </nav>
@@ -1077,19 +1116,21 @@ footer{
       margin-bottom: 56px;
     ">
       <p style="margin:0 0 22px">
-        Wanderhome parla di questo: creature piccole che camminano per il mondo,
-        non per arrivare da qualche parte in fretta, ma per capire dove stanno bene.
-        Un'idea di viaggio fatta di soste, di fuochi accesi la sera, di posti che
-        ti chiedono <em style="color:var(--sage-deep)">come stai</em> e aspettano davvero la risposta.
-        Ci è sembrata la metafora giusta per noi — due che si sono incontrati in cammino
-        e hanno scoperto, piano piano, di andare nella stessa direzione.
+        <a href="https://possumcreekgames.com/pages/wanderhome?srsltid=AfmBOopp-Dgh2Cd3PGr2EH2pZSHCuAG34KihwmhK0q87gGaw1o0sZut0" target="_blank" rel="noopener noreferrer" style="color:var(--sage-deep); border-bottom:1px solid var(--line); transition:border-color .25s">Wanderhome</a> è un piccolo gioco di racconto che ci è rimasto nel cuore,
+        fatto di campi al tramonto, animali in cammino e stagioni che si rincorrono
+        senza fretta. Non si vince e non si arriva primi: si attraversa il mondo con
+        calma, ci si ferma dove si sta bene, ci si prende cura gli uni degli altri.
+        Organizzando questo giorno abbiamo cercato di richiamare questa atmosfera —
+        una festa lenta e spensierata, dove non serve nulla di grande:
+        solo stare insieme, con <em style="color:var(--sage-deep)">serenità</em>.
       </p>
       <p style="margin:0">
-        Il 26 settembre non è un traguardo. È uno di quei momenti in cui ci si siede
-        sul ciglio della strada, si guarda indietro la distanza percorsa, e si decide
-        insieme come continuare. Volevamo che questo sito avesse quella stessa aria:
-        qualcosa di piccolo, fatto a mano, profumato di bosco e di quiete.
-        Un posto dove fermarsi un momento, prima di riprendere il sentiero.
+        Per noi la strada verso casa è sempre stata questo: un viaggio cercato
+        senza affanno, due passi che a poco a poco hanno imparato ad andare allo
+        stesso ritmo, verso un luogo e un tempo in cui potersi finalmente fermare.
+        Il 26 settembre è quel punto del cammino — simbolico, e forse anche un po' reale —
+        in cui ci sediamo, guardiamo la strada fatta, e decidiamo di continuare insieme.
+        Ci farebbe piacere avervi accanto, con questo spirito nel cuore.
       </p>
     </div>
     <div class="fade d2" style="
